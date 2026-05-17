@@ -1,0 +1,46 @@
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!-- START STATE -->
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/card1"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:translationX="0dp"
+            android:alpha="1"/>
+
+    </ConstraintSet>
+
+    <!-- END STATE -->
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/card1"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:translationX="-400dp"
+            android:alpha="0.5"/>
+
+    </ConstraintSet>
+
+    <!-- TRANSITION -->
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end"
+        motion:duration="600"
+        motion:motionInterpolator="easeInOut">
+
+        <OnSwipe
+            motion:touchAnchorId="@id/card1"
+            motion:dragDirection="dragLeft"/>
+    </Transition>
+
+</MotionScene>
